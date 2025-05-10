@@ -1,13 +1,29 @@
-
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { toast } from 'sonner';
 
 const AboutSection = () => {
   const contactInfo = {
-    email: "developer@example.com",
-    phone: "+1 (555) 123-4567",
-    address: "San Francisco, CA, USA",
+    email: "balaprasadpentawar@gmail.com",
+    phone: "+91 9182656743",
+    address: "Hyderabad, Telangana, India",
+  };
+
+  const handleResumeDownload = () => {
+    try {
+      // The resume should be placed in the public folder
+      const resumePath = '/resume.docx';
+      const link = document.createElement('a');
+      link.href = resumePath;
+      link.download = 'Balaprasad_Pentawar_Resume.docx';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      toast.success('Resume download started!');
+    } catch (error) {
+      toast.error('Failed to download resume. Please try again.');
+    }
   };
   
   return (
@@ -30,8 +46,12 @@ const AboutSection = () => {
               that are both functional and aesthetically pleasing. I'm committed to writing clean, 
               maintainable code and constantly learning new technologies.
             </p>
-            <Button asChild>
-              <a href="/resume.pdf" download>Download Resume</a>
+            <Button 
+              onClick={handleResumeDownload}
+              className="flex items-center gap-2"
+            >
+              <Download className="h-4 w-4" />
+              Download Resume
             </Button>
           </div>
           

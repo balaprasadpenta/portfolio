@@ -46,7 +46,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
-          <a href="#home" className="text-primary">Developer</a>
+          <a href="#home" className="text-primary">Bala Prasad</a>
         </div>
         
         {/* Desktop Navigation */}
